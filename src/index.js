@@ -1,44 +1,20 @@
-//  Objetos Literales
-const supersona = {
-    nombreCompleto: {
-        original: 'Kal-El',
-        terrestre: 'Clark Joseph Kent'
-    },
-    raza: 'Kriptoniano',
-    ocupaciones: [ 'Superhéroe', 'Reportero', 'Granjero' ],
-    padres: {
-        kriptonianos: {
-            padre: 'Jor-El',
-            madre: 'Lara Lor-Van'
-        },
-        terricolas: {
-            padre: 'Jonathan Kent',
-            madre: 'Martha Kent'
-        }
-    },
-    familiares: {
-        kriptonianos: {
-            tio: 'Zor-El',
-            tia: 'Alura In-Ze',
-            prima: 'Kara Zor-El',
-            clone: {
-                genetico: 'Kon-El',
-                cibernetico: 'Bizarro'
-            }
-        }
-    }
-};
+//  Arreglos
+const frutas = new Array( 10 );     //  Asigna longitud por defecto para un Array
+frutas.push( 'Mango' );             //  Agrega un elemento modificando la longitud inicial (evitar insertar elementos usando push)
 
-// console.table( supersona );
-console.log( { supersona } );
+console.log( frutas );
 
 const 
-    persona = supersona,                //  Asignacion por referencia (Son el mismo objeto, es decir hay mutacion)
-    supersonita = { ...supersona };     //  Clona el objeto usando el Spread (Ahora son dos objetos diferentes, es decir no hay mutacion)
+    numeros = [ 1, 2, 3, 4 ],
+    numeros2 = numeros,                //  Asignacion por referencia. Son el mismo objeto (muneros y numeros2 ), es decir hay mutacion
+    numeros3 = [ ...numeros, 5 ];      //  Clona el objeto usando el Spread e inserta nuevo elemento. Ahora son dos objetos diferentes ( numeros y numeros3 ) es decir no hay mutacion)
 
+console.log( numeros2 );     //  numeros2 es el mismo objeto de numeros
+console.log( numeros3 );     //  numeros3 es un objeto nuevo 
 
-persona.raza = 'terricola';             //  Muta el objeto literal original supersona
-supersonita.raza = 'valluno';           //  Un objeto nuevo no muta
+/** Crear un nuevo Array usando la funcion map() */
+const numeros4 = numeros3.map( function( numero ) {
+    return numero * 3;          //  Si no se asigna return devolvera undefined por cada posicion del Array
+});
 
-console.log( persona );         //  persona es el mismo objeto de supersonita
-console.log( supersonita );     //  supersonita es un objeto nuevo
+console.log( numeros4 );        //  Se muestra un Array nuevo a partir del mapeo de numeros3 
