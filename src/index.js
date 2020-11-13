@@ -3,15 +3,19 @@ const
     firstName = 'Juan',
     lastName = 'Jiménez';
 
-let number = 42;
+console.log( firstName + ' ' + lastName );
+console.log( `${ firstName } ${ lastName }` );      //  Template String usando Backtick/Backquote
 
-console.log( firstName, lastName, number );
+const fullName = `      //  Template String: Permite hacer saltos de linea y generar espacios dentro del contenido de una variable
+    ${ firstName } 
+    ${ lastName }
+    ${ 6 * 7 }
+`;
+console.log( fullName );
 
-if( true ) {
-    const firstName = 'Carlos';
-    let number = 9;
-
-    console.log( 'if:', firstName, lastName, number );    //  Scope: solo involucra valores dentro del condicional
+//  Function
+function getFullName( fullName ) {
+    return `Hola, ${ fullName }.`;      //  Template String
 }
 
-console.log( firstName, lastName, number );
+console.log( `${ getFullName( `${ firstName } ${ lastName }` ) } ¿Cómo estas?` );   //  Template String
