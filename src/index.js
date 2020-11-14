@@ -1,10 +1,16 @@
-//  Imports & Exports
-import heroes, { owners } from './data/heroes';
+//  Promises (Promesas)
+const promesa = new Promise( ( resolve, reject ) => {
+    const seg = 2;
 
-console.log( heroes );
-console.log( owners );
+    setTimeout( () => {
+        resolve( seg + ' segundos despues' );
+    }, seg * 1000 );
 
-const getHeroesByOwner = owner => {
-    return heroes.filter( hero => hero.owner === owner );
-};
-console.log( getHeroesByOwner( 'Marvel' ) ); 
+});
+
+promesa 
+    .then( data => {
+        console .log( data );
+    })
+    .catch()
+    .finally();
