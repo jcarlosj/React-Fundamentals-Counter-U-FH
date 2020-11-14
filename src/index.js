@@ -1,24 +1,29 @@
 //  Imports & Exports
 import { getHeroById } from './functions';
 
-//  Promises (Promesas)
-const promesa = new Promise( ( resolve, reject ) => {
-    const seg = 2;
+const getHeroByIdAsync = id => {
 
-    setTimeout( () => {
-        const hero = getHeroById( 2 );
-        
-        if( ! hero ) {
-            reject( 'No se encontró el héroe' );
-        } 
+    //  Promises (Promesas)
+    const promesa = new Promise( ( resolve, reject ) => {
+        const seg = 2;
 
-        resolve( hero );
-        
-    }, seg * 1000 );
+        setTimeout( () => {
+            const hero = getHeroById( id );
+            
+            if( ! hero ) {
+                reject( 'No se encontró el héroe' );
+            } 
 
-});
+            resolve( hero );
+            
+        }, seg * 1000 );
 
-promesa 
+    });
+
+    return promesa;
+}
+
+getHeroByIdAsync( 4 )
     .then( data => {
         console.log( data );
     })
