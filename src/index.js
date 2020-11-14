@@ -1,7 +1,7 @@
 //  Imports & Exports
 import { getHeroById } from './functions';
 
-const getHeroByIdAsync = id => {
+const getHeroByIdAsync = ( id = 1 ) => {
 
     //  Promises (Promesas)
     const promesa = new Promise( ( resolve, reject ) => {
@@ -23,11 +23,13 @@ const getHeroByIdAsync = id => {
     return promesa;
 }
 
-getHeroByIdAsync( 4 )
-    .then( data => {
-        console.log( data );
-    })
-    .catch( err => {
-        console.warn( err );
-    })
-    .finally();
+getHeroByIdAsync( 9 )
+    .then( console.log )        //  Forma Abreviada
+    .catch( console.warn )      //  Forma Abreviada
+    .finally( () => {
+
+        getHeroByIdAsync()
+            .then( console.log )        //  Forma Abreviada
+            .catch( console.warn );     //  Forma Abreviada 
+
+    });
