@@ -1,7 +1,8 @@
 //  Imports & Exports
-import heroes from './data/heroes';
+import heroes, { owners } from './data/heroes';
 
 console.log( heroes );
+console.log( owners );
 
 const getHeroesByOwner = owner => {
     return heroes.filter( hero => hero.owner === owner );

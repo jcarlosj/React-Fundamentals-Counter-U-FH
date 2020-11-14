@@ -26,4 +26,6 @@ const heroes = [
     },
 ];
 
+export const owners = [ 'DC', 'Marvel' ];
+
 export default heroes;
