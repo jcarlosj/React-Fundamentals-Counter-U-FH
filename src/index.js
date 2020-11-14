@@ -5,14 +5,9 @@ const
 
 const httpRequest = fetch( url );
 
-httpRequest                     //  -> Retorna una Promesa
-    .then( response => {
-
-        response.json()         //  -> Retorna una Promesa
-            .then( data => {
-                console.log( data );
-            })
-            .catch( console.warn );
-
+httpRequest                                 //  -> Retorna una Promesa
+    .then( response => response.json() )    //  -> Retorna una Promesa
+    .then( data => {
+        console.log( data );                //  -> Retorna los datos
     })
     .catch( console.warn );
