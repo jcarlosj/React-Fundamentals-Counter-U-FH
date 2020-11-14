@@ -1,41 +1,32 @@
-//  Destructuracion de Arreglos (o Asignación desestructurante)
-const heroes = [ 'Superman', 'Wonder Woman', 'Batman' ];
-console.log( heroes[ 1 ] );
+//  Imports & Exports
+import { heroes } from './data/heroes';
 
-const [ , lindaCarter ] = heroes;       //->  Asignacion destructurante
-console.log( lindaCarter );
+console.log( heroes );
 
 
-//  Destructurando el argumento de una funcion
-const getNumber = ([ , , , , , number, , , , ]) => {    //  Destructura solo la posicion 6 del Array
-    return number;
-}
+const getHeroById = id => {
+    return heroes.find( hero => {
+        return hero.id === id;
+    });
+};
+console.log( getHeroById( 3 ) ); 
 
-const 
-    digits = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
-    fiveNumber = getNumber( digits );
 
-console.log( fiveNumber );
+const getOtherHeroById = hero_id => {
+    return heroes.find( ({ id }) => {       //->  Asignacion destructurante
+        return id === hero_id;
+    });
+};
+console.log( getOtherHeroById( 3 ) ); 
 
-//  Destructurar datos retornados por una funcion
-const dataAccount = () => {
-    return [ '384768363-4', 'Eva Sofia', 550 ];
-}
+//  Aplicamos el retorno implicito
+const getNewHeroById = hero_id => {
+    return heroes.find( ({ id }) => id === hero_id );
+};
+console.log( getNewHeroById( 3 ) ); 
 
-const [ , nombre, saldo ] = dataAccount();
-console.log( nombre, saldo ); 
 
-//  Destructurando el argumento de una funcion
-const getInfo = ( value ) => {
-    return [
-        value,
-        () => { console.log( 'Saludos terricola!' ); }
-    ];
-}
-
-const dataArr = getInfo( 'Janeth' );
-dataArr[ 1 ]();
-
-const [ elNombre, saludo ] = getInfo( 'Janeth' );   //  saludo destructura la funcion retornada
-console.log( elNombre );
-saludo();
+const getHeroesByOwner = owner => {
+    return heroes.filter( hero => hero.owner === owner );
+};
+console.log( getHeroesByOwner( 'Marvel' ) ); 
