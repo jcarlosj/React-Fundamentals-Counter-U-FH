@@ -1,35 +1,18 @@
-//  Imports & Exports
-import { getHeroById } from './functions';
+//  Fetch API
+const 
+    apiKey = '6t2zjzJn3x3LILIFUpF6GKKcR95JTJhK',
+    url = `http://api.giphy.com/v1/gifs/random?api_key=${ apiKey }`;
 
-const getHeroByIdAsync = ( id = 1 ) => {
+const httpRequest = fetch( url );
 
-    //  Promises (Promesas)
-    const promesa = new Promise( ( resolve, reject ) => {
-        const seg = 2;
+httpRequest                     //  -> Retorna una Promesa
+    .then( response => {
 
-        setTimeout( () => {
-            const hero = getHeroById( id );
-            
-            if( ! hero ) {
-                reject( 'No se encontró el héroe' );
-            } 
+        response.json()         //  -> Retorna una Promesa
+            .then( data => {
+                console.log( data );
+            })
+            .catch( console.warn );
 
-            resolve( hero );
-            
-        }, seg * 1000 );
-
-    });
-
-    return promesa;
-}
-
-getHeroByIdAsync( 9 )
-    .then( console.log )        //  Forma Abreviada
-    .catch( console.warn )      //  Forma Abreviada
-    .finally( () => {
-
-        getHeroByIdAsync()
-            .then( console.log )        //  Forma Abreviada
-            .catch( console.warn );     //  Forma Abreviada 
-
-    });
+    })
+    .catch( console.warn );
