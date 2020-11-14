@@ -1,5 +1,4 @@
-//  Exportacion Anonima por defecto
-export default [
+const heroes = [
     {
         id: 1,
         name: 'Batman',
@@ -26,3 +25,5 @@ export default [
         owner: 'Marvel'
     },
 ];
+
+export default heroes;
