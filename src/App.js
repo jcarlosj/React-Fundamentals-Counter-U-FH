@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types'
 
 /** Functional Component */
-const App = ({ name }) => {
+const App = ({ name, message }) => {
 
     const data = {
         name,
-        title: `Hola ${ name } desde React!`,
-        message: 'Usamos un Fragment para agrupar elementos HTML y poder retornarlos como uno solo'
+        title: `Hola, ${ name }!`,
+        message
     };
 
     console.log( name );
@@ -22,7 +22,8 @@ const App = ({ name }) => {
 }
 
 App.propTypes = {
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired
 }
  
 export default App;
