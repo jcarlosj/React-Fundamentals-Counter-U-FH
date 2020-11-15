@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 
 /** Functional Component */
-const App = ({ name, message = 'React te da la bienvenida' }) => {
+const App = ({ name, message }) => {
 
     const data = {
         name,
@@ -24,6 +24,10 @@ const App = ({ name, message = 'React te da la bienvenida' }) => {
 App.propTypes = {
     name: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired
+}
+
+App.defaultProps = {
+    message: 'React te da la bienvenida'
 }
  
 export default App;
