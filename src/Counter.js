@@ -4,10 +4,14 @@ import PropTypes from 'prop-types'
 /** Functional Component */
 const Counter = ({ value }) => {
 
-    const [ counter, setCounter ] = useState( 0 );
+    const [ counter, setCounter ] = useState( value );
 
-    const handleAdd = ( event ) => {
-        setCounter( counter + 1 );      //  Otra Forma: setCounter( counter => counter + 1 ); 
+    const handleAction = ( action ) => {
+
+        if( action === 'add' ) setCounter( counter + 1 );      
+        else if( action === 'subtract' ) setCounter( counter - 1 ); 
+        else setCounter( value );
+
     }
 
     return ( 
@@ -16,14 +20,24 @@ const Counter = ({ value }) => {
             <h2>{ counter }</h2>
 
             <button
-                onClick={ handleAdd }
+                onClick={ () => handleAction( 'add' ) }
             >+ 1</button>
+            <button
+                onClick={ () => handleAction( 'reset' ) }
+            >Reset </button>
+            <button
+                onClick={ () => handleAction( 'subtract' ) }
+            >- 1</button>
         </>
     );
 }
  
 Counter.propTypes = {
     value: PropTypes.number
+}
+
+Counter.defaultProps = {
+    value: 0
 }
 
 export default Counter;
