@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 
 /** Functional Component */
-const App = ({ name, message }) => {
+const App = ({ name, message = 'React te da la bienvenida' }) => {
 
     const data = {
         name,
