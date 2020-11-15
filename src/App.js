@@ -1,15 +1,15 @@
 import React from 'react';
 
 /** Functional Component */
-const App = ( props ) => {
+const App = ({ name }) => {
 
     const data = {
-        props,
-        title: `Hola ${ props.name } desde React!`,
+        name,
+        title: `Hola ${ name } desde React!`,
         message: 'Usamos un Fragment para agrupar elementos HTML y poder retornarlos como uno solo'
     };
 
-    console.log( props );
+    console.log( name );
 
     return (
         <> 
