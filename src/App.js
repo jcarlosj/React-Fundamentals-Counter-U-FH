@@ -3,6 +3,10 @@ import React from 'react';
 /** Functional Component */
 const App = ({ name }) => {
 
+    if( ! name ) {
+        throw new Error( 'El saludo es necesario' );
+    }
+
     const data = {
         name,
         title: `Hola ${ name } desde React!`,
