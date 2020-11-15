@@ -1,11 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 /** Functional Component */
 const App = ({ name }) => {
-
-    if( ! name ) {
-        throw new Error( 'El saludo es necesario' );
-    }
 
     const data = {
         name,
@@ -22,6 +19,10 @@ const App = ({ name }) => {
             <pre>{ JSON.stringify( data, null, 4 ) }</pre>
         </>
     );
+}
+
+App.propTypes = {
+    name: PropTypes.string
 }
  
 export default App;
