@@ -13,3 +13,11 @@ h1 {
 p {
     font-size: 1rem;;
 }
+
+pre {
+    color: orange;
+    display: inline-block;
+    font-size: 1rem;;
+    margin: 0 auto;
+    text-align: left;
+}
