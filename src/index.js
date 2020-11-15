@@ -1,21 +1,17 @@
-//  Operador Ternario
-const active = true;
-let message = '';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-//  Condicional if-else tradicional
-if( ! active ) {
-    message = 'Activo';
-}
-else {
-    message = 'Inactivo';
-}
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-console.log( message );                     //  Inactivo
-
-//  Ejemplo anterior escrito con el operador ternario
-const msg = ! active ? 'Activo' : 'Inactivo';
-console.log( msg );                         //  Inactivo
-
-//  Ejemplo anterior abreviado 
-const mensajito = ! active && 'Activo';     //  Equivale a escribir un if simple
-console.log( mensajito );                   //  false
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
