@@ -10,7 +10,7 @@ const App = ({ name, message }) => {
         message
     };
 
-    console.log( name );
+    // console.log( name );
 
     return (
         <> 
