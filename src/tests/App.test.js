@@ -43,6 +43,26 @@ describe( '<App />', () => {
             
         });
 
+        test( 'should send the message sent by props', () => {
+            
+            const 
+                name = 'Eva Sofia Janeth',
+                message = 'Este universo te recibe con los brazos abiertos', 
+                wrapper = shallow( 
+                    <App 
+                        name={ name } 
+                        message={ message }
+                    /> 
+                ),
+                paragraphText = wrapper.find( 'p' ).text();       //  Encuentra un elemento p en el Componente
+
+            console.log( paragraphText );
+
+            expect( paragraphText ).toBe( message );
+
+        })
+        
+
     }); 
 
 });
