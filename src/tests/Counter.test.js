@@ -3,12 +3,17 @@ import { shallow } from 'enzyme';
 
 import Counter from '../Counter';
 
-describe( '<Counter />', () => {
+describe( 'Enzime:', () => {
 
-    const wrapper = shallow( <Counter /> );
+    let wrapper;
+
+    beforeEach( () => {
+        wrapper = shallow( <Counter /> );   //  Ejecuta una función antes de que se ejecute cada una de las pruebas de este archivo
+        // console.log( 'Counter' );
+    });
     
-    describe( 'Enzime:', () => {
-        
+    describe( '<Counter />', () => {
+
         test( 'should deploy the component correctly', () => {
 
             // console.log( wrapper.debug() );
