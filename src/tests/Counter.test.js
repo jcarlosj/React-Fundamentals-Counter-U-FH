@@ -68,6 +68,30 @@ describe( 'Enzime:', () => {
                 expect( ( Number( currentValue ) - 1 ).toString() ).toBe( finalValue );
 
             });
+
+            test( 'should set the default value when clicking reset', () => {
+
+                const 
+                    clicks = 3,         //  Numero de clicks del boton +1
+                    defaultValue = 9,
+                    wrapper = shallow( <Counter value={ defaultValue } /> ),
+                    currentValue = wrapper.find( 'h2' ).text().trim();
+                    
+                //  Clicks de incremento
+                for( let i = 0; i < clicks; i ++ ) {
+                    wrapper.find( 'button' ).at( 0 ).simulate( 'click' );   //  Simula un click sobre el boton
+                }
+
+                //  Click de restablecer valor por defecto
+                wrapper.find( 'button' ).at( 1 ).simulate( 'click' );       //  Simula un click sobre el boton
+
+                const finalValue = wrapper.find( 'h2' ).text().trim();      //  Encuentra un elemento h2 en el Componente y extrae el texto contenido
+
+                // console.log( currentValue, finalValue );
+
+                expect( finalValue ).toBe( currentValue );
+
+            });
             
         });
         
